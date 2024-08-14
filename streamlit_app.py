@@ -28,7 +28,6 @@ if ingredients_list:
         session.sql(sql_insert).collect()
         st.success(' Your Smoothie is ordered '+name_on_order+' !', icon="✅");
 
-st.text(fruityvice_response.json())
         
 
 
