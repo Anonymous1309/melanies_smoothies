@@ -25,7 +25,7 @@ if ingredients_list:
         st.subheader( each_fruit+ 'Nutrient_Information')
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+search_on)
         fv_dataframe = st.dataframe(data=fruityvice_response.json(),use_container_width=True)
-    sql_insert="""insert into smoothies.public.orders(ingredients,name_on_order) values('"""+ingredients_string+"""','"""+name_on_order+"""')""";
+    sql_insert="""insert into smoothies.public.orders(ingredients,name_on_order) values('"""+ingredients_string+"""' , '"""+name_on_order+"""')""";
     submit_button=st.button('submit order');
     if submit_button:
         session.sql(sql_insert).collect()
