@@ -19,7 +19,7 @@ if ingredients_list:
     for each_fruit in ingredients_list:
         ingredients_string+=each_fruit+' ';
         st.subheader( each_fruit+ 'Nutrient_Information')
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"+fruit_chosen)
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"+each_fruit)
     fv_dataframe = st.dataframe(data=fruityvice_response.json(),use_container_width=True)
     st.write(ingredients_string);
     sql_insert="""insert into smoothies.public.orders(ingredients,name_on_order) values('"""+ingredients_string+"""','"""+name_on_order+"""')""";
